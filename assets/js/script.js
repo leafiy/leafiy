@@ -6,6 +6,17 @@ var ql_niceSCrollPostList, ql_animateHeader, ql_animateMainPostList, ql_animateM
 jQuery(document).ready(function($) {
 
 
+	//remove duplicate nav
+	var seen = {};
+	$('header li a').each(function() {
+	    var txt = $(this).attr('href');
+	    if (seen[txt])
+	        $(this).parent('li').remove();
+	    else
+	        seen[txt] = true;
+	});
+
+
 	//Get post lists via AJAX
 	if ($(".ql_post_list article").length == 0) {
 		siteUrl = self.location.protocol.toString() + "//" + self.location.host.toString();
