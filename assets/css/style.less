@@ -115,16 +115,6 @@ hr {
   box-sizing: content-box;
   height: 0;
 }
-pre {
-  overflow: auto;
-}
-code,
-kbd,
-pre,
-samp {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
 button,
 input,
 optgroup,
@@ -223,7 +213,6 @@ th {
   a[href^="#"]:after {
     content: "";
   }
-  pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
@@ -731,19 +720,6 @@ address {
   font-style: normal;
   line-height: 1.75;
 }
-code,
-kbd,
-pre,
-samp {
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-code {
-  padding: 2px 4px;
-  font-size: 90%;
-  color: #c7254e;
-  background-color: #f9f2f4;
-  border-radius: 2px;
-}
 kbd {
   padding: 2px 4px;
   font-size: 90%;
@@ -757,27 +733,7 @@ kbd kbd {
   font-size: 100%;
   box-shadow: none;
 }
-pre {
-  display: block;
-  padding: 13.5px;
-  margin: 0 0 14px;
-  font-size: 15px;
-  line-height: 1.75;
-  word-break: break-all;
-  word-wrap: break-word;
-  color: #333333;
-  background-color: #f5f5f5;
-  border: 1px solid #cccccc;
-  border-radius: 2px;
-}
-pre code {
-  padding: 0;
-  font-size: inherit;
-  color: inherit;
-  white-space: pre-wrap;
-  background-color: transparent;
-  border-radius: 0;
-}
+
 .pre-scrollable {
   max-height: 340px;
   overflow-y: scroll;
@@ -2239,6 +2195,37 @@ input[type="reset"].btn-block,
 input[type="button"].btn-block {
   width: 100%;
 }
+::-moz-selection {
+  background: #b3d5f3; }
+::selection {
+  background: #b3d5f3; }
+pre{
+  margin: 1.6em 0;
+  background: #f1f0ea;
+  width: 100%;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 0.9em;
+  white-space: pre;
+  overflow: auto;
+  border-radius: 3px;
+  code{
+    font-size: inherit;
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap;
+    background: transparent;
+    border: none;
+    padding: 0
+  }
+}
+code{
+  font-size: 0.85em;
+  white-space: pre-wrap;
+  background: #f1f0ea;
+  border-radius: 2px;
+  padding: 0.2em 0.4em;
+  vertical-align: top;
+}
 .fade {
   opacity: 0;
   -webkit-transition: opacity 0.15s linear;
@@ -2253,12 +2240,6 @@ input[type="button"].btn-block {
 }
 .collapse.in {
   display: block;
-}
-tr.collapse.in {
-  display: table-row;
-}
-tbody.collapse.in {
-  display: table-row-group;
 }
 .collapsing {
   position: relative;
@@ -9310,8 +9291,8 @@ LESS Variables and Mixins
 //
 //##
 
-@code-color: #c7254e;
-@code-bg: #f9f2f4;
+@code-color: #333;
+@code-bg: #FFFAA6;
 @kbd-color: #fff;
 @kbd-bg: #333;
 @pre-bg: #f5f5f5;
