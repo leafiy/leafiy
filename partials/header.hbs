@@ -1,43 +1,58 @@
 <div class="header_line"></div>
 <header id="header" class="">
 
-
   <div class="logo_container">
-    {{#if @blog.logo}}<a class="ql_logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="Logo" /></a>{{/if}}
+    {{#if @blog.logo}}
+    <a class="ql_logo" href="{{@blog.url}}">
+      <img src="{{@blog.logo}}" alt="Logo" />
+    </a>
+    {{/if}}
     <a href="{{@blog.url}}" class="ql_logo">{{@blog.title}}</a>
     <p class="logo_desc">{{@blog.description}}</p>
-</div><!-- /logo_container -->
+  </div>
+  <!-- /logo_container -->
 
+  <div class="clearfix"></div>
 
-<div class="clearfix"></div>
+  <nav id="jqueryslidemenu" class="jqueryslidemenu ">
+    <ul id="nav" class="nav">
+      <li class="current_page_item">
+        <a href="{{@blog.url}}" class="current_nav">首页</a>
+      </li>
+      {{#foreach posts}}
 
-<nav id="jqueryslidemenu" class="jqueryslidemenu ">
-   <ul id="nav" class="nav">
-      <li class="current_page_item"><a href="{{@blog.url}}" class="current_nav">Home</a></li>
-      <li><a href="{{@blog.url}}/about/">About</a></li>
-      <li><a target="_blank" href="mailto:t@leafiy.com">Contact</a></li>
-  </ul>
-</nav>
+{{#foreach tags}}
+      <li>
+        <a href="{{url}}">{{name}}</a>
+      </li>
+      {{/foreach}}
 
+{{/foreach}}
+    </ul>
+  </nav>
 
-<div class="clearfix"></div>
+  <div class="clearfix"></div>
 
-<hr class="ql_line"></hr>
+  <hr class="ql_line"></hr>
 
 <div class="sub_footer">
 
-
-    <ul class="nav nav_social">
-      <li class="n_twitter"><a href="https://twitter.com/t_leafiy" target="_blank"><i class="fa fa-twitter"></i></a></li>
-      <li class="n_instagram"><a href="http://instagram.com/leafiy" target="_blank"><i class="fa fa-instagram"></i></a></li>
+  <ul class="nav nav_social">
+    <li class="n_twitter">
+      <a href="https://twitter.com/t_leafiy" target="_blank"> <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li class="n_instagram">
+      <a href="http://instagram.com/leafiy" target="_blank"> <i class="fa fa-instagram"></i>
+      </a>
+    </li>
   </ul>
 
+  <div class="clearfix"></div>
 
-<div class="clearfix"></div>
+  <p class="pull-left">© Copyright {{date format="YYYY"}} - {{@blog.title}}</p>
 
-<p class="pull-left">© Copyright {{date format="YYYY"}} - {{@blog.title}}</p>
-
-</div><!-- /sub_footer -->
-
+</div>
+<!-- /sub_footer -->
 
 </header>
