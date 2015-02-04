@@ -5,15 +5,14 @@ if (document.documentElement) {
 var ql_niceSCrollPostList, ql_animateHeader, ql_animateMainPostList, ql_animateMainPost;
 jQuery(document).ready(function($) {
 
-
 	//remove duplicate nav
 	var seen = {};
 	$('header li a').each(function() {
-	    var txt = $(this).attr('href');
-	    if (seen[txt])
-	        $(this).parent('li').remove();
-	    else
-	        seen[txt] = true;
+		var txt = $(this).attr('href');
+		if (seen[txt])
+			$(this).parent('li').remove();
+		else
+			seen[txt] = true;
 	});
 
 
@@ -117,25 +116,32 @@ jQuery(document).ready(function($) {
 			});
 		}
 	}, ".dropdown"); // descendant selector
-
-
-
-	//Disqus
-
+	var commentLoading;
 	$(document).on('click', '.main_col .meta_comments a', function(event) {
-		event.preventDefault();
-		/* Act on the event */
-		var post_id = $(".main_col > .post").attr('id');
+		if(!commentLoading){
+			event.preventDefault();
+			commentLoading = true
+	        var $this = $(this);
+	        $this.parent('.meta_comments').addClass('loading');
+	        console.log('llll')
+	        var post_id = $(".main_col > .post").attr('id');
+	        disqus_identifier = post_id.replace('post-','');
+	        $.ajax({
+	             type: "GET",
+	             url: "http://leafiy.disqus.com/embed.js",
+	             dataType: "script",
+	             cache: true,
+	             success:function(){
+	             	$this.parent('.meta_comments').removeClass('loading');
+	             	commentLoading = false
+	             }
+	         });
+		}else{
+			return false;
+		}
 
-		disqus_identifier = post_id.replace('post-', '');
-		$.ajax({
-			type: "GET",
-			url: "http://" + disqus_shortname + ".disqus.com/embed.js",
-			dataType: "script",
-			cache: true
-		});
-	});
 
+    });
 
 
 	$(".collapse").collapse();

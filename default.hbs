@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
     {{! Ghost outputs important style and meta data with this tag }}
     {{ghost_head}}
+    {{ghost_foot}}
 </head>
 <body class="{{body_class}}">
     <div id="wrap" class="">
@@ -22,25 +23,18 @@
                 <div id="header_sidebar">{{> "header"}}</div>
                 {{! Everything else gets inserted here }}
         {{{body}}}
-
-
-
-        {{! Ghost outputs important scripts and data with this tag }}
-        {{ghost_foot}}
-        {{! The main JavaScript file for Casper }}
-
-
             </div>
             <!-- /wrap -->
- <script type="text/javascript">var main_url = "{{@blog.url}}";</script>
-<script type="text/javascript" data-pace-options='{ "restartOnPushState": false }' src="{{asset "js/pace.min.js"}}"></script>
-<script type="text/javascript" src="{{asset "js/bootstrap.min.js"}}"></script>
-<script type="text/javascript" src="{{asset "js/modernizr.min.js"}}"></script>
-<script type="text/javascript" src="{{asset "js/jquery.debouncedresize.min.js"}}"></script>
-<script type="text/javascript" src="{{asset "js/jquery.history.js"}}"></script>
-<script type="text/javascript" src="{{asset "js/animo.min.js"}}"></script>
-<script type="text/javascript" src="{{asset "js/ajax-script.js"}}"></script>
-<script type="text/javascript" src="{{asset "js/jquery.nicescroll.min.js"}}"></script>
-<script type="text/javascript" src="{{asset "js/script.js"}}"></script>
+            <script>var main_url = "{{@blog.url}}";</script>
+            <script data-pace-options='{ "restartOnPushState": false }' src="{{asset "js/pace.min.js"}}"></script>
+            <script src="{{asset "js/bootstrap.min.js"}}"></script>
+            <script src="{{asset "js/modernizr.min.js"}}"></script>
+            <script src="{{asset "js/jquery.debouncedresize.min.js"}}"></script>
+            <script src="{{asset "js/jquery.history.js"}}"></script>
+            <script src="{{asset "js/animo.min.js"}}"></script>
+            <script src="{{asset "js/ajax-script.js"}}"></script>
+            <script src="{{asset "js/jquery.nicescroll.min.js"}}"></script>
+            <script src="{{asset "js/script.js"}}"></script>
+
 </body>
-</html>
+        </html>
